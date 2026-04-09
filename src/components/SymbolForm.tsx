@@ -6,7 +6,7 @@ export default function SymbolForm({ setSymbol }: { setSymbol: (symbol: string) 
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const stockSymbol = formData.get("stock-symbol") as string;
-        setSymbol(stockSymbol);
+        setSymbol(stockSymbol.toUpperCase());
     }
 
     return (
@@ -14,7 +14,7 @@ export default function SymbolForm({ setSymbol }: { setSymbol: (symbol: string) 
             <form onSubmit={handleSubmit}>
                 <div className="market-input">
                     <label htmlFor="stock-symbol">Stock Symbol</label>
-                    <input id="stock-symbol" name="stock-symbol" type="text" placeholder="Enter stock symbol" />
+                    <input id="stock-symbol" name="stock-symbol" type="text" placeholder="Enter stock symbol" required />
                 </div>
                 <button type='submit' className='button-get'>Get Market Value</button>
             </form>
